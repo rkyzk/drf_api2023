@@ -14,6 +14,7 @@ class PoemSerializer(serializers.ModelSerializer):
     profile_name = serializers.ReadOnlyField(
         source='owner.profile.display_name')
     featured_flag = serializers.ReadOnlyField()
+    published_at = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         """
@@ -23,6 +24,14 @@ class PoemSerializer(serializers.ModelSerializer):
         """
         request = self.context['request']
         return request.user == obj.owner
+
+    def get_published_at(self, obj):
+        """
+        If published, return time in 'dd month(spelled out) YYYY' format
+        """
+        if obj.published_at:
+            return obj.published_at.strftime("%d %b %Y")
+        return obj.published_at
 
     class Meta:
         """Define which fields will be accessible."""
