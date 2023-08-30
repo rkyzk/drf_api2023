@@ -1,4 +1,4 @@
-"""This module holds serialier class for Profile model."""
+"""This module holds serializer class for Profile model."""
 
 from rest_framework import serializers
 from .models import Profile
