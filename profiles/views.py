@@ -14,3 +14,12 @@ class ProfileList(generics.ListAPIView):
     """
     queryset = Profile.objects.all().order_by('-created_at')
     serializer_class = ProfileSerializer
+
+
+class ProfileDetail(generics.RetrieveUpdateAPIView):
+    """
+    Retrieve or update a profile if the current user is the owner.
+    """
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Profile.objects.all().order_by('-created_at')
+    serializer_class = ProfileSerializer
