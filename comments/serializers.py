@@ -27,3 +27,11 @@ class CommentSerializer(serializers.ModelSerializer):
             'profile_image', 'profile_name', 'poem', 'created_at',
             'status', 'content', 'updated_at'
         ]
+
+
+class CommentDetailSerializer(CommentSerializer):
+    """
+    Serializer for the Comment model used in Detail view
+    Poem is a read only field so that we dont have to set it on each update
+    """
+    poem = serializers.ReadOnlyField(source='poem.id')
