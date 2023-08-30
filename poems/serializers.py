@@ -14,7 +14,15 @@ class PoemSerializer(serializers.ModelSerializer):
     profile_name = serializers.ReadOnlyField(
         source='owner.profile.display_name')
     featured_flag = serializers.ReadOnlyField()
-    published_at = serializers.SerializerMethodField()
+
+    def get_is_owner(self, obj):
+        """
+        Return if the poem is owned by the current user.
+        :return: true/false
+        :rtype: boolean
+        """
+        request = self.context['request']
+        return request.user == obj.owner
 
     class Meta:
         """Define which fields will be accessible."""
