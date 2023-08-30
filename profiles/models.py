@@ -17,7 +17,7 @@ class Profile(models.Model):
         upload_to='images/', default='../sunset.jpg'
     )
     featured_flag = models.BooleanField(default=False)
- 
+
     class Meta:
         """Define options for how the profiles will be ordered."""
         ordering = ['-created_at']
@@ -37,3 +37,12 @@ class Profile(models.Model):
         if not self.display_name:
             self.display_name = self.owner.username
         super().save(*args, **kwargs)
+
+
+def create_profile(sender, instance, created, **kwargs):
+    """Create Profile instance if a new user is created."""
+    if created:
+        Profile.objects.create(owner=instance)
+
+
+post_save.connect(create_profile, sender=User)

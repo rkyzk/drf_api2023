@@ -3,6 +3,7 @@ and for editing Profile objects."""
 
 from rest_framework import generics
 from .models import Profile
+from drf_api.permissions import IsOwnerOrReadOnly
 from .serializers import ProfileSerializer
 
 
@@ -13,4 +14,3 @@ class ProfileList(generics.ListAPIView):
     """
     queryset = Profile.objects.all().order_by('-created_at')
     serializer_class = ProfileSerializer
-
