@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 class PoemSerializer(serializers.ModelSerializer):
-    """Add or modify 10 fields"""
+    """Add or modify 7 fields"""
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
