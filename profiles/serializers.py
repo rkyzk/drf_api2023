@@ -1,13 +1,17 @@
-"""This module holds serializer class for Profile model."""
+"""This module holds serialier class for Profile model."""
 
 from rest_framework import serializers
 from .models import Profile
+from followers.models import Follower
 
 
 class ProfileSerializer(serializers.ModelSerializer):
-    """Add or modify 5 fields."""
+    """Add or modify 6 fields."""
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
+    following_id = serializers.SerializerMethodField()
+    followers_count = serializers.ReadOnlyField()
+    poems_count = serializers.ReadOnlyField()
     user_id = serializers.ReadOnlyField(source='owner.pk')
 
     def get_is_owner(self, obj):
@@ -19,6 +23,19 @@ class ProfileSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_following_id(self, obj):
+        """
+        Return following id or None if no id.
+        :return: id
+        :rtype: int or None
+        """
+        user = self.context['request'].user
+        if user.is_authenticated:
+            following = Follower.objects.filter(
+                owner=user, followed=obj.owner
+            ).first()
+            return following.id if following else None
+        return None
 
     def validate_image(self, value):
         """
@@ -47,5 +64,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = [
             'id', 'owner', 'display_name', 'created_at', 'updated_at',
-            'about_me', 'favorites', 'image', 'is_owner', 'user_id',
+            'about_me', 'favorites', 'image', 'is_owner', 'following_id',
+            'followers_count', 'poems_count', 'user_id',
         ]
