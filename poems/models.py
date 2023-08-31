@@ -38,3 +38,4 @@ class Poem(models.Model):
         :rtype: str
         """
         return self.title
+
