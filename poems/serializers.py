@@ -16,6 +16,9 @@ class PoemSerializer(serializers.ModelSerializer):
         source='owner.profile.display_name')
     featured_flag = serializers.ReadOnlyField()
     published_at = serializers.SerializerMethodField()
+    like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         """
@@ -55,5 +58,5 @@ class PoemSerializer(serializers.ModelSerializer):
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'profile_name', 'created_at', 'published_at',
             'updated_at', 'title', 'content', 'category', 'published',
-            'featured_flag', 'like_id',
+            'featured_flag', 'like_id', 'likes_count', 'comments_count'
         ]
