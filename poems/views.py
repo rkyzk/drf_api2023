@@ -25,6 +25,28 @@ class PoemList(generics.ListCreateAPIView):
         filters.SearchFilter,
         DjangoFilterBackend,
     ]
+    filterset_fields = {
+        'owner__followed__owner__profile': ['exact'],
+        'likes__owner__profile': ['exact'],
+        'owner__profile': ['exact'],
+        'owner__profile__display_name': ['icontains'],
+        'title': ['icontains'],
+        'published_at': ['date__gte', 'date__lte'],
+        'category': ['exact'],
+        'published': ['exact'],
+        'featured_flag': ['exact']
+    }
+    search_fields = (
+        'title',
+        'content',
+    )
+    ordering_fields = (
+        'likes_count',
+        'comments_count',
+        'likes__created_at',
+        'published_at',
+        'created_at',
+    )
 
     def perform_create(self, serializer):
         """Set current user as the owner of the poem."""
