@@ -39,3 +39,10 @@ class Poem(models.Model):
         """
         return self.title
 
+    def save(self, *args, **kwargs):
+        """
+        If the poem is published, set published_at.
+        """
+        if self.published and not self.published_at:
+            self.published_at = datetime.utcnow()
+        super().save(*args, **kwargs)
