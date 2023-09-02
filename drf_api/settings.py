@@ -70,6 +70,9 @@ ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
 ]
 
+CORS_ORIGIN_WHITELIST = [
+    'https://3000-rkyzk-poetry2023-731m269odww.ws-us104.gitpod.io'
+]
 
 # Application definition
 
@@ -86,7 +89,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django_filters',
-    # 'django.contrib.sites',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
