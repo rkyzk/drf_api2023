@@ -14,7 +14,7 @@ class Profile(models.Model):
     about_me = models.TextField(null=True, blank=True)
     favorites = models.TextField(null=True, blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default-profile.jpg'
+        upload_to='images/', default='default-profile.jpg'
     )
     featured_flag = models.BooleanField(default=False)
 
