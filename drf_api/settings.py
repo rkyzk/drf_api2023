@@ -71,8 +71,7 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://3000-rkyzk-poetry2023-731m269odww.ws-us104.gitpod.io',
-    'http://192.168.1.23:3000',
+    'https://your-poetry-2023-094a4af35547.herokuapp.com',
 ]
 
 # Application definition
