@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'django_filters',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -121,6 +122,8 @@ MIDDLEWARE = [
 #     ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+SITE_ID = 1
 
 ROOT_URLCONF = 'drf_api.urls'
 
