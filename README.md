@@ -201,3 +201,6 @@ All errors were cleared.
 
 I leaned Django Rest Framework from the walk-through project at CI, and I incorporated many ideas from it.<br>
 https://github.com/Code-Institute-Solutions/drf-api
+
+I took the code in 'DeleteUser' class in profiles.views from the following project and modified it.
+https://github.com/andy-guttridge/tribehub_drf/blob/main/profiles/views.py
