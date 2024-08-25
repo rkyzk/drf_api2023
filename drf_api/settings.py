@@ -160,10 +160,7 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 # else:
 DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bqazouxg',
-    }
+    'default': dj_database_url.config(),
 }
 
 
