@@ -163,6 +163,7 @@ DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL),
 }
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
+DATABASES['default']['NAME'] = 'bqazouxg'
 
 
 
