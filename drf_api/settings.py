@@ -162,7 +162,7 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'elephantsql',
+        'NAME': 'bqazouxg',
     }
 }
 
