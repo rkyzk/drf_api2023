@@ -60,15 +60,14 @@ REST_AUTH_SERIALIZERS = {
 }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "poetry_secret5key"
-# os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    '8000-rkyzk-drfapi2023-pkelgr4ziva.ws-us110.gitpod.io',
-    os.environ.get('ALLOWED_HOST'),
+ALLOWED_HOSTS = [ '*'
+    # '8000-rkyzk-drfapi2023-pkelgr4ziva.ws-us110.gitpod.io',
+    # os.environ.get('ALLOWED_HOST'),
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -162,11 +161,11 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL),
 }
-DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-DATABASES['default']['NAME'] = os.getenv('DATABASE_NAME')
-DATABASES['default']['USER'] = os.getenv('DATABASE_USER')
-DATABASES['default']['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
-DATABASES['default']['HOST'] = os.getenv('DATABASE_HOST')
+# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+# DATABASES['default']['NAME'] = os.getenv('DATABASE_NAME')
+# DATABASES['default']['USER'] = os.getenv('DATABASE_USER')
+# DATABASES['default']['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
+# DATABASES['default']['HOST'] = os.getenv('DATABASE_HOST')
 
 
 
