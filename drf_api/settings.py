@@ -158,8 +158,9 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 #         }
 #     }
 # else:
+DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
-    'default': 'postgres://bqazouxg:ixw-eKsawE3mS--ahOwErZdF7aq1r6QN@arjuna.db.elephantsql.com/bqazouxg',
+    'default': dj_database_url.config(),
 }
 
 
