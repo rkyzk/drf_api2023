@@ -162,7 +162,7 @@ DATABASE_URL = os.getenv('DATABASE_URL')
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL),
 }
-DATABASES['default']['ENGINE'] = 'arjuna.db.elephantsql.com'
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql'
 DATABASES['default']['NAME'] = os.getenv('DATABASE_NAME')
 DATABASES['default']['USER'] = os.getenv('DATABASE_USER')
 DATABASES['default']['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
