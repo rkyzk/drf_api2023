@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import re
 import dj_database_url
-from .settings_common import *
 
 if os.path.exists('env.py'):
     import env
@@ -61,7 +60,8 @@ REST_AUTH_SERIALIZERS = {
 }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "poetry_secret5key"
+# os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
