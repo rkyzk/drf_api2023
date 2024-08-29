@@ -71,7 +71,7 @@ ALLOWED_HOSTS = [ '*'
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://your-poetry-2023-094a4af35547.herokuapp.com',
+    'http://http://localhost:3000',
 ]
 
 # Application definition
@@ -157,15 +157,10 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 #         }
 #     }
 # else:
-#DATABASE_URL = os.getenv('DATABASE_URL')
+
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL")),
 }
-# DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
-# DATABASES['default']['NAME'] = os.getenv('DATABASE_NAME')
-# DATABASES['default']['USER'] = os.getenv('DATABASE_USER')
-# DATABASES['default']['PASSWORD'] = os.getenv('DATABASE_PASSWORD')
-# DATABASES['default']['HOST'] = os.getenv('DATABASE_HOST')
 
 
 
