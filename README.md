@@ -22,7 +22,7 @@ https://github.com/rkyzk/poetry-2023
 This Django Rest Framework API serves as the backend for "Your Poetry" application -- a platform for sharing poetry.
 The API contains apps that handle data about poems, user profiles, comments on the poems as well as which users liked which poems (likes app) and which users follows which users (followers app.)
 
-The app can be found [here](https://poetry-6c31c94e3988.herokuapp.com/)
+The app can be found [here](https://drf-api-poetry.up.railway.app/)
 
 ## Main Technologies
 Django Rest Framework
